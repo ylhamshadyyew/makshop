@@ -10,6 +10,27 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="showTab('login')">Вход</button>
+                <button class="auth-tab" onclick="showTab('register')">Регистрация</button>
+            </div>
+            <div id="loginForm" class="auth-form">
+                <input type="text" id="loginUsername" placeholder="Имя пользователя">
+                <input type="password" id="loginPassword" placeholder="Пароль">
+                <button onclick="login()">Войти</button>
+            </div>
+            <div id="registerForm" class="auth-form" style="display: none;">
+                <input type="text" id="registerUsername" placeholder="Имя пользователя">
+                <input type="password" id="registerPassword" placeholder="Пароль">
+                <input type="password" id="confirmPassword" placeholder="Подтвердите пароль">
+                <button onclick="register()">Зарегистрироваться</button>
+            </div>
+        </div>
+    </div>
+
     <header>
         <nav>
             <div class="logo">MakShop</div>
@@ -18,6 +39,11 @@
                 <li><a href="#portfolio">Портфолио</a></li>
                 <li><a href="#prices">Цены</a></li>
                 <li><a href="#contact">Контакты</a></li>
+                <li><a href="#" id="authButton" class="auth-button">Войти</a></li>
+                <li><span id="userInfo" class="user-info" style="display: none;">
+                    <span id="username"></span>
+                    <button onclick="logout()" class="logout-button">Выйти</button>
+                </span></li>
             </ul>
         </nav>
     </header>
@@ -139,7 +165,7 @@
         <p class="payment-info">
             Оплата производится через DonationAlerts!  
             Ссылка: <a href="https://www.donationalerts.com/r/maksim23042009">Клик!</a>
-          </p>          
+        </p>          
     </section>
 
     <section id="contact" class="contact">
